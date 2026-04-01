@@ -1,0 +1,11 @@
+# Data files (contain hashed passwords - do not commit)
+hazelly-partner-portal/data/settings.json
+hazelly-partner-portal/data/media.json
+
+# Uploaded media (do not commit)
+hazelly-partner-portal/uploads/documents/*
+hazelly-partner-portal/uploads/photos/*
+hazelly-partner-portal/uploads/videos/*
+
+# Keep .htaccess placeholders
+!hazelly-partner-portal/uploads/.htaccess
