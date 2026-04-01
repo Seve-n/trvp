@@ -1,0 +1,6 @@
+# Prevent PHP execution in uploads
+<FilesMatch "\.php[s345]?$">
+  Require all denied
+</FilesMatch>
+
+Options -Indexes
