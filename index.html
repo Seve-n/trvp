@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Espace partenaire Hazelly Hair Love — Accès réservé aux pharmacies partenaires.">
+  <title>Connexion — Hazelly Hair Love Espace Partenaire</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="login-page">
+
+  <!-- ══ Left panel ══════════════════════════════════════════ -->
+  <aside class="login-visual" aria-hidden="true">
+    <div class="login-visual-content">
+      <div class="login-brand-logo">🌿</div>
+      <h1 class="login-brand-name">Hazelly<br>Hair Love</h1>
+      <p class="login-brand-tagline">Espace Partenaire Pharmacies</p>
+
+      <ul class="login-features">
+        <li class="login-feature-item">
+          <span class="login-feature-icon">📄</span>
+          <span>Fiches techniques &amp; bons de commande</span>
+        </li>
+        <li class="login-feature-item">
+          <span class="login-feature-icon">🖼</span>
+          <span>Visuels haute définition &amp; packshots</span>
+        </li>
+        <li class="login-feature-item">
+          <span class="login-feature-icon">🎬</span>
+          <span>Tutoriels vidéo &amp; contenus promotionnels</span>
+        </li>
+        <li class="login-feature-item">
+          <span class="login-feature-icon">⬇</span>
+          <span>Téléchargement direct de tous les fichiers</span>
+        </li>
+      </ul>
+    </div>
+    <p class="login-visual-footer">© 2025 Hazelly Hair Love · Accès réservé</p>
+  </aside>
+
+  <!-- ══ Right form panel ════════════════════════════════════ -->
+  <main class="login-form-panel">
+    <div class="login-form-wrap">
+      <h2 class="login-title">Connexion partenaire</h2>
+      <p class="login-subtitle">Veuillez saisir le mot de passe fourni par Hazelly Hair Love pour accéder à votre espace.</p>
+
+      <!-- Error message -->
+      <div class="login-error" id="login-error" role="alert" aria-live="polite">
+        <span>⚠</span>
+        <span id="login-error-text">Mot de passe incorrect. Veuillez réessayer.</span>
+      </div>
+
+      <form class="login-form" id="login-form" novalidate>
+        <div class="form-group">
+          <label for="partner-password">Mot de passe</label>
+          <div class="password-input-wrap">
+            <input
+              type="password"
+              id="partner-password"
+              name="password"
+              class="form-control"
+              placeholder="Saisissez votre mot de passe"
+              autocomplete="current-password"
+              required
+              aria-required="true"
+              aria-describedby="login-error"
+            >
+            <button type="button" class="toggle-password" aria-label="Afficher/Masquer le mot de passe">👁</button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full btn-lg" id="btn-login">
+          Accéder à l'espace partenaire →
+        </button>
+      </form>
+
+      <p class="login-footer-note">
+        Administrateur ? <a href="admin.html" id="admin-link">Accès administration</a>
+      </p>
+    </div>
+  </main>
+
+  <!-- Toast container -->
+  <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Scripts -->
+  <script src="js/auth.js"></script>
+  <script>
+    (function () {
+      // Redirect if already logged in
+      if (Auth.isAuthenticated('partner')) {
+        window.location.href = 'portal.html';
+      }
+
+      const form     = document.getElementById('login-form');
+      const errorBox = document.getElementById('login-error');
+      const errorTxt = document.getElementById('login-error-text');
+      const btnLogin = document.getElementById('btn-login');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const pw = document.getElementById('partner-password').value;
+        btnLogin.disabled = true;
+        btnLogin.textContent = 'Vérification…';
+
+        // Small delay for UX
+        setTimeout(function () {
+          if (Auth.loginPartner(pw)) {
+            window.location.href = 'portal.html';
+          } else {
+            errorBox.classList.add('visible');
+            errorTxt.textContent = 'Mot de passe incorrect. Veuillez réessayer.';
+            btnLogin.disabled = false;
+            btnLogin.textContent = 'Accéder à l\'espace partenaire →';
+            document.getElementById('partner-password').focus();
+          }
+        }, 500);
+      });
+
+      // Toggle password visibility
+      document.querySelector('.toggle-password').addEventListener('click', function () {
+        const input = document.getElementById('partner-password');
+        const isHidden = input.type === 'password';
+        input.type = isHidden ? 'text' : 'password';
+        this.textContent = isHidden ? '🙈' : '👁';
+      });
+    })();
+  </script>
+</body>
+</html>

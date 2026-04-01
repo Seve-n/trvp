@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Administration — Hazelly Hair Love</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<!-- ══════════════════════ ADMIN LOGIN ════════════════════════
+     Shown if not authenticated — replaced by the main layout   -->
+<div id="admin-login-screen" style="
+  min-height:100vh; display:flex; align-items:center; justify-content:center;
+  background: linear-gradient(135deg, #3D2B1F 0%, #6B4028 60%, #C4956A 100%);
+  padding:2rem;">
+  <div style="
+    background:#FDF8F3; border-radius:20px; padding:2.5rem;
+    width:100%; max-width:400px; box-shadow:0 8px 40px rgba(0,0,0,.3);">
+
+    <div style="text-align:center;margin-bottom:2rem;">
+      <div style="font-size:2.5rem;margin-bottom:.75rem;">🌿</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;color:#3D2B1F;margin-bottom:.3rem;">Hazelly Hair Love</h2>
+      <p style="color:#7A5C44;font-size:.88rem;letter-spacing:.06em;text-transform:uppercase;">Administration</p>
+    </div>
+
+    <div id="admin-login-error" style="display:none;
+      background:#FFF0F0;border:1.5px solid #F5C6C6;color:#C45A5A;
+      padding:.75rem 1rem;border-radius:6px;font-size:.88rem;margin-bottom:1rem;">
+      ⚠ Mot de passe administrateur incorrect.
+    </div>
+
+    <div class="form-group">
+      <label for="admin-password-input" style="font-size:.85rem;font-weight:600;color:#7A5C44;letter-spacing:.04em;text-transform:uppercase;">
+        Mot de passe admin
+      </label>
+      <div class="password-input-wrap">
+        <input type="password" id="admin-password-input" class="form-control"
+          placeholder="Mot de passe administrateur"
+          autocomplete="current-password">
+        <button type="button" class="toggle-password" aria-label="Afficher/Masquer">👁</button>
+      </div>
+    </div>
+
+    <button id="btn-admin-login" class="btn btn-primary btn-full btn-lg" style="margin-top:.5rem;">
+      Connexion Administration →
+    </button>
+
+    <p style="text-align:center;margin-top:1.5rem;font-size:.82rem;color:#7A5C44;">
+      <a href="index.html" style="color:#C4956A;font-weight:600;">← Retour à l'espace partenaire</a>
+    </p>
+  </div>
+</div>
+
+<!-- ══════════════════════ ADMIN PANEL ════════════════════════ -->
+<div id="admin-panel" class="admin-layout hidden">
+
+  <!-- ── Sidebar ─────────────────────────────────────────── -->
+  <aside class="admin-sidebar" id="admin-sidebar" role="navigation" aria-label="Menu administration">
+    <div class="admin-sidebar-header">
+      <div class="admin-brand">
+        <div class="admin-brand-icon">🌿</div>
+        <span class="admin-brand-name">Hazelly</span>
+      </div>
+      <span class="admin-panel-label">Administration</span>
+    </div>
+
+    <nav class="admin-nav">
+      <div class="admin-nav-section">
+        <div class="admin-nav-section-title">Tableau de bord</div>
+        <button class="admin-nav-item active" data-section="dashboard" data-label="Tableau de bord">
+          <span class="icon">📊</span> Vue d'ensemble
+        </button>
+      </div>
+
+      <div class="admin-nav-section">
+        <div class="admin-nav-section-title">Médiathèque</div>
+        <button class="admin-nav-item" data-section="pdf" data-label="Documents PDF">
+          <span class="icon">📄</span> Documents PDF
+        </button>
+        <button class="admin-nav-item" data-section="photo" data-label="Photos">
+          <span class="icon">🖼</span> Photos
+        </button>
+        <button class="admin-nav-item" data-section="video" data-label="Vidéos">
+          <span class="icon">🎬</span> Vidéos
+        </button>
+      </div>
+
+      <div class="admin-nav-section">
+        <div class="admin-nav-section-title">Paramètres</div>
+        <button class="admin-nav-item" data-section="settings" data-label="Paramètres &amp; Sécurité">
+          <span class="icon">🔐</span> Mots de passe
+        </button>
+      </div>
+    </nav>
+
+    <div class="admin-sidebar-footer">
+      <div class="admin-user-info">
+        <div class="admin-avatar">A</div>
+        <div>
+          <div class="admin-user-name">Administrateur</div>
+          <div class="admin-user-role">Hazelly Hair Love</div>
+        </div>
+      </div>
+      <button class="btn btn-ghost btn-sm btn-full" id="btn-logout" style="color:rgba(255,255,255,.6);">
+        🔓 Déconnexion
+      </button>
+    </div>
+  </aside>
+
+  <!-- ── Main area ────────────────────────────────────────── -->
+  <div class="admin-main">
+    <!-- Top bar -->
+    <div class="admin-topbar">
+      <button class="admin-mobile-toggle" id="mobile-menu-toggle" aria-label="Ouvrir le menu">☰</button>
+      <h2 class="admin-topbar-title" id="admin-topbar-title">Tableau de bord</h2>
+      <div class="admin-topbar-actions">
+        <a href="portal.html" class="btn btn-secondary btn-sm" target="_blank" rel="noopener">
+          👁 Voir le portail
+        </a>
+      </div>
+    </div>
+
+    <div class="admin-content">
+
+      <!-- ════ DASHBOARD ════════════════════════════════════ -->
+      <div class="admin-tab-section active" data-section="dashboard">
+
+        <div class="admin-stats-grid">
+          <div class="stat-card">
+            <div class="stat-card-icon stat-icon-total">📁</div>
+            <div class="stat-card-info">
+              <div class="value" id="stat-total">—</div>
+              <div class="label">Total contenus</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon stat-icon-pdf">📄</div>
+            <div class="stat-card-info">
+              <div class="value" id="stat-pdf">—</div>
+              <div class="label">Documents PDF</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon stat-icon-photo">🖼</div>
+            <div class="stat-card-info">
+              <div class="value" id="stat-photo">—</div>
+              <div class="label">Photos</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon stat-icon-video">🎬</div>
+            <div class="stat-card-info">
+              <div class="value" id="stat-video">—</div>
+              <div class="label">Vidéos</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-section">
+          <div class="admin-section-header">
+            <h3 class="admin-section-title">📋 Guide de démarrage rapide</h3>
+          </div>
+          <div style="padding:1.5rem;">
+            <p style="color:var(--color-text-light);font-size:.95rem;line-height:1.7;margin-bottom:1rem;">
+              Bienvenue dans le panneau d'administration de l'espace partenaire Hazelly Hair Love.
+              Depuis ce tableau de bord vous pouvez :
+            </p>
+            <ul style="color:var(--color-text-light);font-size:.9rem;line-height:2;padding-left:1.25rem;list-style:disc;">
+              <li>Ajouter, modifier et supprimer des contenus dans la <strong>médiathèque</strong> (PDF, Photos, Vidéos)</li>
+              <li>Modifier le <strong>mot de passe partenaire</strong> partagé avec les pharmacies</li>
+              <li>Modifier votre <strong>mot de passe administrateur</strong></li>
+              <li>Prévisualiser le portail tel que le voit le pharmacien via le bouton <em>"Voir le portail"</em></li>
+            </ul>
+            <div style="margin-top:1.5rem;display:flex;gap:.75rem;flex-wrap:wrap;">
+              <button class="btn btn-secondary btn-sm" id="btn-reset-demo">🔄 Restaurer les données de démo</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ════ PDF TABLE ═══════════════════════════════════ -->
+      <div class="admin-tab-section" data-section="pdf">
+        <div class="admin-section">
+          <div class="admin-section-header">
+            <h3 class="admin-section-title">📄 Documents PDF</h3>
+            <button class="btn btn-primary btn-sm" id="btn-add-pdf">+ Ajouter un PDF</button>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="admin-table" aria-label="Liste des documents PDF">
+              <thead>
+                <tr>
+                  <th>Titre</th>
+                  <th>Description</th>
+                  <th>Taille</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="pdf-table-body">
+                <tr><td colspan="5" style="text-align:center;color:var(--color-text-light);padding:2rem;">Chargement…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════ PHOTO TABLE ═════════════════════════════════ -->
+      <div class="admin-tab-section" data-section="photo">
+        <div class="admin-section">
+          <div class="admin-section-header">
+            <h3 class="admin-section-title">🖼 Photos</h3>
+            <button class="btn btn-primary btn-sm" id="btn-add-photo">+ Ajouter une photo</button>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="admin-table" aria-label="Liste des photos">
+              <thead>
+                <tr>
+                  <th>Titre</th>
+                  <th>Description</th>
+                  <th>Taille</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="photo-table-body">
+                <tr><td colspan="5" style="text-align:center;color:var(--color-text-light);padding:2rem;">Chargement…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════ VIDEO TABLE ═════════════════════════════════ -->
+      <div class="admin-tab-section" data-section="video">
+        <div class="admin-section">
+          <div class="admin-section-header">
+            <h3 class="admin-section-title">🎬 Vidéos</h3>
+            <button class="btn btn-primary btn-sm" id="btn-add-video">+ Ajouter une vidéo</button>
+          </div>
+          <div style="overflow-x:auto;">
+            <table class="admin-table" aria-label="Liste des vidéos">
+              <thead>
+                <tr>
+                  <th>Titre</th>
+                  <th>Description</th>
+                  <th>Taille</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="video-table-body">
+                <tr><td colspan="5" style="text-align:center;color:var(--color-text-light);padding:2rem;">Chargement…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════ SETTINGS ════════════════════════════════════ -->
+      <div class="admin-tab-section" data-section="settings">
+
+        <!-- Partner password -->
+        <div class="settings-card">
+          <h3 class="settings-card-title">🔑 Mot de passe partenaire</h3>
+          <p style="color:var(--color-text-light);font-size:.9rem;margin-bottom:1.5rem;">
+            Ce mot de passe est partagé avec toutes les pharmacies partenaires.
+            Communiquez le nouveau mot de passe à vos partenaires après chaque modification.
+          </p>
+          <form id="partner-password-form" novalidate>
+            <div class="form-group">
+              <label for="partner-new-pw">Nouveau mot de passe partenaire</label>
+              <div class="password-input-wrap">
+                <input type="password" id="partner-new-pw" class="form-control"
+                  placeholder="Minimum 6 caractères" data-field="new-password" autocomplete="new-password">
+                <button type="button" class="toggle-password" aria-label="Afficher/Masquer">👁</button>
+              </div>
+              <div class="password-strength" id="partner-pw-strength">
+                <div class="password-strength-fill" style="width:0%;background:var(--color-border);"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="partner-confirm-pw">Confirmer le mot de passe</label>
+              <div class="password-input-wrap">
+                <input type="password" id="partner-confirm-pw" class="form-control"
+                  placeholder="Répétez le mot de passe" data-field="confirm-password" autocomplete="new-password">
+                <button type="button" class="toggle-password" aria-label="Afficher/Masquer">👁</button>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Enregistrer le mot de passe partenaire</button>
+          </form>
+        </div>
+
+        <!-- Admin password -->
+        <div class="settings-card">
+          <h3 class="settings-card-title">🛡 Mot de passe administrateur</h3>
+          <p style="color:var(--color-text-light);font-size:.9rem;margin-bottom:1.5rem;">
+            Ce mot de passe vous donne accès au panneau d'administration. Gardez-le confidentiel.
+          </p>
+          <form id="admin-password-form" novalidate>
+            <div class="form-group">
+              <label for="admin-new-pw">Nouveau mot de passe administrateur</label>
+              <div class="password-input-wrap">
+                <input type="password" id="admin-new-pw" class="form-control"
+                  placeholder="Minimum 6 caractères" data-field="new-password" autocomplete="new-password">
+                <button type="button" class="toggle-password" aria-label="Afficher/Masquer">👁</button>
+              </div>
+              <div class="password-strength" id="admin-pw-strength">
+                <div class="password-strength-fill" style="width:0%;background:var(--color-border);"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="admin-confirm-pw">Confirmer le mot de passe</label>
+              <div class="password-input-wrap">
+                <input type="password" id="admin-confirm-pw" class="form-control"
+                  placeholder="Répétez le mot de passe" data-field="confirm-password" autocomplete="new-password">
+                <button type="button" class="toggle-password" aria-label="Afficher/Masquer">👁</button>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Enregistrer le mot de passe admin</button>
+          </form>
+        </div>
+
+      </div>
+
+    </div><!-- /admin-content -->
+  </div><!-- /admin-main -->
+</div><!-- /admin-panel -->
+
+<!-- ══ Media Add/Edit modal ═══════════════════════════════ -->
+<div class="modal-overlay hidden" id="media-modal" role="dialog" aria-modal="true" aria-labelledby="media-modal-title">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 class="modal-title" id="media-modal-title">Ajouter un contenu</h3>
+      <button class="modal-close" id="media-modal-close" aria-label="Fermer">✕</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="media-form-id">
+      <input type="hidden" id="media-form-type">
+
+      <div class="form-group">
+        <label>Type de contenu</label>
+        <div style="padding:.5rem 1rem;background:var(--color-secondary);border-radius:6px;font-weight:600;color:var(--color-text-light);" id="media-form-type-display">—</div>
+      </div>
+      <div class="form-group">
+        <label for="media-form-title">Titre <span style="color:var(--color-error);">*</span></label>
+        <input type="text" id="media-form-title" class="form-control" placeholder="Ex : Fiche technique — Sérum Réparateur">
+      </div>
+      <div class="form-group">
+        <label for="media-form-desc">Description</label>
+        <textarea id="media-form-desc" class="form-control" rows="3" placeholder="Courte description visible par les pharmaciens…" style="resize:vertical;"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="media-form-url">URL du fichier</label>
+        <input type="url" id="media-form-url" class="form-control" placeholder="https://… ou lien direct vers le fichier">
+        <small style="color:var(--color-text-light);font-size:.78rem;">
+          Lien direct de téléchargement (Google Drive, Dropbox, S3, YouTube embed pour vidéos…)
+        </small>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        <div class="form-group">
+          <label for="media-form-filename">Nom du fichier</label>
+          <input type="text" id="media-form-filename" class="form-control" placeholder="ex: document.pdf">
+        </div>
+        <div class="form-group">
+          <label for="media-form-size">Taille (affichage)</label>
+          <input type="text" id="media-form-size" class="form-control" placeholder="ex: 2.4 Mo">
+        </div>
+      </div>
+      <div class="form-group" style="flex-direction:row;align-items:center;gap:.75rem;">
+        <input type="checkbox" id="media-form-isnew" style="width:18px;height:18px;accent-color:var(--color-primary);">
+        <label for="media-form-isnew" style="margin:0;font-size:.9rem;text-transform:none;letter-spacing:0;">
+          Marquer comme « Nouveau » (badge affiché aux partenaires)
+        </label>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary btn-sm" id="media-modal-cancel">Annuler</button>
+      <button class="btn btn-primary btn-sm" id="media-modal-save">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ Delete confirm modal ══════════════════════════════ -->
+<div class="modal-overlay hidden" id="delete-modal" role="dialog" aria-modal="true" aria-labelledby="delete-modal-heading">
+  <div class="modal" style="max-width:420px;">
+    <div class="modal-header">
+      <h3 class="modal-title" id="delete-modal-heading">Confirmer la suppression</h3>
+      <button class="modal-close" id="delete-modal-close" aria-label="Fermer">✕</button>
+    </div>
+    <div class="modal-body">
+      <p style="color:var(--color-text-light);">
+        Êtes-vous sûr de vouloir supprimer
+        <strong id="delete-item-name" style="color:var(--color-text);">ce contenu</strong> ?
+        Cette action est irréversible.
+      </p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary btn-sm" id="delete-modal-cancel">Annuler</button>
+      <button class="btn btn-danger btn-sm" id="delete-modal-confirm">Supprimer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+<!-- Scripts -->
+<script src="js/auth.js"></script>
+<script src="js/data.js"></script>
+<script>
+  /* ── Handle admin login screen ─────────────────────────── */
+  (function () {
+    const loginScreen = document.getElementById('admin-login-screen');
+    const adminPanel  = document.getElementById('admin-panel');
+    const errorBox    = document.getElementById('admin-login-error');
+    const pwInput     = document.getElementById('admin-password-input');
+    const btnLogin    = document.getElementById('btn-admin-login');
+
+    function showPanel() {
+      loginScreen.style.display = 'none';
+      adminPanel.classList.remove('hidden');
+    }
+
+    // Already authenticated?
+    if (Auth.isAuthenticated('admin')) {
+      showPanel();
+    }
+
+    btnLogin?.addEventListener('click', function () {
+      const pw = pwInput?.value || '';
+      if (Auth.loginAdmin(pw)) {
+        showPanel();
+        // Initialise admin panel now that the user is authenticated
+        if (typeof initAdminPanel === 'function') initAdminPanel();
+      } else {
+        errorBox.style.display = 'block';
+        pwInput?.focus();
+      }
+    });
+
+    pwInput?.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') btnLogin?.click();
+    });
+
+    // Toggle password on login screen
+    const toggleBtn = document.querySelector('#admin-login-screen .toggle-password');
+    toggleBtn?.addEventListener('click', function () {
+      const isHidden = pwInput.type === 'password';
+      pwInput.type   = isHidden ? 'text' : 'password';
+      this.textContent = isHidden ? '🙈' : '👁';
+    });
+  })();
+</script>
+<script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Espace Partenaire — Hazelly Hair Love</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/portal.css">
+</head>
+<body>
+
+<div class="portal-layout">
+
+  <!-- ══ Header ══════════════════════════════════════════════ -->
+  <header class="portal-header" role="banner">
+    <div class="portal-header-inner">
+
+      <!-- Brand -->
+      <div class="portal-brand">
+        <div class="portal-brand-icon" aria-hidden="true">🌿</div>
+        <span>Hazelly Hair Love</span>
+      </div>
+
+      <!-- Nav -->
+      <nav class="portal-nav" aria-label="Navigation principale">
+        <button class="portal-nav-btn active" data-section="media">
+          📁 Médiathèque
+        </button>
+        <button class="portal-nav-btn" data-section="contact">
+          📞 Contact
+        </button>
+      </nav>
+
+      <!-- Actions -->
+      <div class="portal-header-actions">
+        <button class="btn btn-ghost btn-sm" id="btn-logout" aria-label="Se déconnecter">
+          🔓 Déconnexion
+        </button>
+        <div class="portal-avatar" aria-hidden="true" title="Pharmacie partenaire">💊</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══ Main ════════════════════════════════════════════════ -->
+  <main class="portal-main" id="portal-main">
+
+    <!-- ── Media section ──────────────────────────────────── -->
+    <section class="tab-section active" data-section="media">
+
+      <!-- Hero banner -->
+      <div class="portal-hero" role="region" aria-label="Résumé des ressources disponibles">
+        <div class="portal-hero-text">
+          <h2>Bonjour, bienvenue dans votre espace 👋</h2>
+          <p>Retrouvez ici l'ensemble des ressources marketing et documentaires<br>
+             mises à votre disposition par Hazelly Hair Love.</p>
+        </div>
+        <div class="portal-hero-stats" aria-label="Statistiques du contenu">
+          <div class="portal-hero-stat">
+            <div class="number" data-stat="pdf">—</div>
+            <div class="label">Documents</div>
+          </div>
+          <div class="portal-hero-stat">
+            <div class="number" data-stat="photo">—</div>
+            <div class="label">Photos</div>
+          </div>
+          <div class="portal-hero-stat">
+            <div class="number" data-stat="video">—</div>
+            <div class="label">Vidéos</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section header -->
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">📁 Médiathèque</h2>
+          <p class="section-subtitle">Tous les contenus disponibles pour votre pharmacie</p>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="filter-bar" role="toolbar" aria-label="Filtres">
+        <div class="filter-search-wrap">
+          <span class="icon" aria-hidden="true">🔍</span>
+          <input
+            type="search"
+            id="search-input"
+            class="form-control filter-search"
+            placeholder="Rechercher un document, une photo…"
+            aria-label="Rechercher dans la médiathèque"
+          >
+        </div>
+        <div class="filter-tabs" role="group" aria-label="Filtrer par type">
+          <button class="filter-tab active" data-type="all">Tout</button>
+          <button class="filter-tab" data-type="pdf">📄 Documents</button>
+          <button class="filter-tab" data-type="photo">🖼 Photos</button>
+          <button class="filter-tab" data-type="video">🎬 Vidéos</button>
+        </div>
+      </div>
+
+      <!-- Media grid -->
+      <div class="media-grid" id="media-grid" role="list" aria-label="Liste des contenus">
+        <!-- Populated by portal.js -->
+      </div>
+
+    </section>
+
+    <!-- ── Contact section ────────────────────────────────── -->
+    <section class="tab-section" data-section="contact">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">📞 Contact &amp; Support</h2>
+          <p class="section-subtitle">Votre équipe Hazelly Hair Love est à votre disposition</p>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;">
+
+        <div class="card" style="padding:1.75rem;">
+          <div style="font-size:2rem;margin-bottom:1rem;">👩‍💼</div>
+          <h3 style="font-family:var(--font-heading);margin-bottom:.4rem;">Responsable Comptes Clés</h3>
+          <p style="color:var(--color-text-light);font-size:.9rem;margin-bottom:1rem;">
+            Pour toute question sur vos commandes, la disponibilité produits ou les protocoles de vente.
+          </p>
+          <p style="font-size:.9rem;"><strong>📧</strong> partenaires@hazellyhairlove.fr</p>
+          <p style="font-size:.9rem;margin-top:.3rem;"><strong>📱</strong> +33 (0)1 00 00 00 00</p>
+        </div>
+
+        <div class="card" style="padding:1.75rem;">
+          <div style="font-size:2rem;margin-bottom:1rem;">🎨</div>
+          <h3 style="font-family:var(--font-heading);margin-bottom:.4rem;">Équipe Communication</h3>
+          <p style="color:var(--color-text-light);font-size:.9rem;margin-bottom:1rem;">
+            Besoin d'un visuel spécifique, d'une adaptation de format ou d'une campagne locale ?
+          </p>
+          <p style="font-size:.9rem;"><strong>📧</strong> marketing@hazellyhairlove.fr</p>
+        </div>
+
+        <div class="card" style="padding:1.75rem;">
+          <div style="font-size:2rem;margin-bottom:1rem;">🔧</div>
+          <h3 style="font-family:var(--font-heading);margin-bottom:.4rem;">Support Technique</h3>
+          <p style="color:var(--color-text-light);font-size:.9rem;margin-bottom:1rem;">
+            Problème d'accès au portail, fichier manquant ou lien défaillant ?
+          </p>
+          <p style="font-size:.9rem;"><strong>📧</strong> support@hazellyhairlove.fr</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main><!-- /portal-main -->
+</div><!-- /portal-layout -->
+
+<!-- ══ Preview modal ════════════════════════════════════════ -->
+<div class="modal-overlay hidden" id="preview-overlay" role="dialog" aria-modal="true" aria-labelledby="preview-title">
+  <div class="modal preview-modal">
+    <div class="modal-header">
+      <h3 class="modal-title" id="preview-title">Aperçu</h3>
+      <button class="modal-close" id="preview-close" aria-label="Fermer l'aperçu">✕</button>
+    </div>
+    <div class="modal-body preview-modal-content" id="preview-content">
+      <!-- Populated by portal.js -->
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary btn-sm" id="preview-close-btn">Fermer</button>
+      <button class="btn btn-primary btn-sm" id="preview-download">⬇ Télécharger</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+<!-- Scripts -->
+<script src="js/auth.js"></script>
+<script src="js/data.js"></script>
+<script src="js/portal.js"></script>
+<script>
+  // Extra close button handler
+  document.getElementById('preview-close-btn')?.addEventListener('click', function () {
+    document.getElementById('preview-overlay').classList.add('hidden');
+    document.getElementById('preview-content').innerHTML = '';
+    document.body.style.overflow = '';
+  });
+</script>
+</body>
+</html>
