@@ -1,0 +1,24 @@
+# Hazelly Hair Love — Partner Portal
+# .htaccess — Apache configuration
+
+# Prevent direct browsing of sensitive directories
+Options -Indexes
+
+# Protect data directory
+<DirectoryMatch "^.*/data/">
+    Order deny,allow
+    Deny from all
+</DirectoryMatch>
+
+# Enable URL rewriting
+RewriteEngine On
+
+# Redirect bare domain to index.php
+RewriteRule ^$ index.php [L,R=302]
+
+# Security headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

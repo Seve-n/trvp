@@ -1,0 +1,98 @@
+[
+  {
+    "id": "demo-pdf-1",
+    "type": "pdf",
+    "title": "Fiche technique — Sérum Réparateur",
+    "description": "Composition, bénéfices et protocole d'application du sérum réparateur Hazelly.",
+    "url": "#",
+    "file_path": "",
+    "file_name": "fiche-technique-serum-reparateur.pdf",
+    "file_size": "1.2 Mo",
+    "addedAt": "2026-03-30T10:00:00+00:00",
+    "is_new": true
+  },
+  {
+    "id": "demo-pdf-2",
+    "type": "pdf",
+    "title": "Protocole de vente — Printemps 2025",
+    "description": "Guide complet des arguments de vente et objections courantes en pharmacie.",
+    "url": "#",
+    "file_path": "",
+    "file_name": "protocole-vente-printemps-2025.pdf",
+    "file_size": "850 Ko",
+    "addedAt": "2026-03-25T10:00:00+00:00",
+    "is_new": false
+  },
+  {
+    "id": "demo-pdf-3",
+    "type": "pdf",
+    "title": "Bon de commande — Collection Été 2025",
+    "description": "Formulaire de commande pour les produits de la collection été 2025.",
+    "url": "#",
+    "file_path": "",
+    "file_name": "bon-commande-ete-2025.pdf",
+    "file_size": "320 Ko",
+    "addedAt": "2026-03-18T10:00:00+00:00",
+    "is_new": false
+  },
+  {
+    "id": "demo-photo-1",
+    "type": "photo",
+    "title": "Packshot — Gamme Réparation",
+    "description": "Visuels produits haute définition sur fond blanc pour communication digitale.",
+    "url": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80",
+    "file_path": "",
+    "file_name": "packshot-gamme-reparation.jpg",
+    "file_size": "4.2 Mo",
+    "addedAt": "2026-03-31T10:00:00+00:00",
+    "is_new": true
+  },
+  {
+    "id": "demo-photo-2",
+    "type": "photo",
+    "title": "Visuel Réseaux Sociaux — Carré Instagram",
+    "description": "Pack de 6 visuels optimisés 1080×1080 pour les publications Instagram.",
+    "url": "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=800&q=80",
+    "file_path": "",
+    "file_name": "visuels-instagram-pack.jpg",
+    "file_size": "6.8 Mo",
+    "addedAt": "2026-03-27T10:00:00+00:00",
+    "is_new": false
+  },
+  {
+    "id": "demo-photo-3",
+    "type": "photo",
+    "title": "Photo Mannequin — Résultats",
+    "description": "Série de photos before/after avec mannequin professionnel.",
+    "url": "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80",
+    "file_path": "",
+    "file_name": "photos-mannequin-resultats.jpg",
+    "file_size": "8.1 Mo",
+    "addedAt": "2026-03-22T10:00:00+00:00",
+    "is_new": false
+  },
+  {
+    "id": "demo-video-1",
+    "type": "video",
+    "title": "Tutoriel — Application Masque Nutritif",
+    "description": "Vidéo de démonstration pour conseiller le masque nutritif en officine.",
+    "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "file_path": "",
+    "file_name": "tuto-masque-nutritif.mp4",
+    "file_size": "124 Mo",
+    "addedAt": "2026-03-29T10:00:00+00:00",
+    "is_new": true
+  },
+  {
+    "id": "demo-video-2",
+    "type": "video",
+    "title": "Vidéo Promotionnelle — Écran Vitrine",
+    "description": "Spot 30 secondes pour diffusion sur écrans en pharmacie. Format 16:9.",
+    "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "file_path": "",
+    "file_name": "spot-ecran-vitrine-30s.mp4",
+    "file_size": "87 Mo",
+    "addedAt": "2026-03-24T10:00:00+00:00",
+    "is_new": false
+  }
+]
